@@ -1,17 +1,30 @@
 // Initialize variables.
 class Scene{
   constructor(){
-    self.description = "This is some default text for a scene."
+    this.description = "This is some default text for a scene."
+  }
+
+  set_description(description){
+    self.description = description
+  }
+
+  get_description(){
+    return this.description
   }
 }
 
 class Screen{
   constructor(){
-    this.state = 42
+    this.state = new Scene()
   }
 
   get_state(){
     return this.state
+  }
+
+  update(){
+    // console.log("Updating screen.")
+    document.getElementById("description").innerHTML = this.get_state().get_description()
   }
 
   b0(){
